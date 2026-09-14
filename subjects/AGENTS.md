@@ -2,18 +2,22 @@
 
 Scoped guidance for everything under `subjects/`. The root `AGENTS.md` still applies.
 
-## Subjects
+## Groups and Subjects
 
 ```text
 subjects/
-└── <subject>/
-    ├── README.md            # question or scope, status, source index
-    ├── sources/             # this subject's Refs into imported external revisions
-    └── <angle>.md           # findings, comparisons, reproductions, open questions
+└── <group>/
+    ├── README.md            # the group's scope and its subject index
+    └── <subject>/
+        ├── README.md        # question or scope, status, source index
+        ├── sources/         # this subject's Refs into imported external revisions
+        └── <angle>.md       # findings, comparisons, reproductions, open questions
 ```
 
-- One directory per subject: `subjects/<subject>/`, lowercase hyphenated, named for the object or question under study
-  rather than the tool used to study it.
+- One directory per [research group](../AGENTS.md): `subjects/<group>/`, lowercase hyphenated, named for the object or
+  theme its subjects share. `README.md` in a group directory states the group's scope and lists its subjects.
+- One directory per subject inside its group: `subjects/<group>/<subject>/`, lowercase hyphenated, named for the object
+  or question under study rather than the tool used to study it.
 - `README.md` in a subject directory is its entry point. It states the question or scope, the current status
   (`planned`, `active`, `paused`, or `done`), and that subject's source index.
 - `sources/` holds the Refs this subject reads: one directory per pinned source, created through the Twin Skill. It is

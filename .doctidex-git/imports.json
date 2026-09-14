@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "tracked": true,
+    "git-url": "git@github.com:deepseek-ai/deepseek-harness",
+    "commit-hash": "fb2c4b9e698e30edb738bca4cf0618587db7d203",
+    "install-id": "100a32aaa411eb94",
+    "install-path": "/.doctidex-git/imports/github.com/deepseek-ai/deepseek-harness/tag/dsh-v0.1.5-rc.2",
+    "keys": [
+      "deepseek-ai/deepseek-harness",
+      "deepseek-ai/deepseek-harness@dsh-v0.1.5-rc.2",
+      "deepseek-harness"
+    ],
+    "branch": "",
+    "tag": "dsh-v0.1.5-rc.2"
+  }
+]

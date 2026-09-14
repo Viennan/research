@@ -15,29 +15,34 @@ a single commit, while the research writing lives in this repository's own histo
 ├── AGENTS.md
 ├── .agents/skills/          # repository-local Agent Skills
 ├── .doctidex-git/           # doctidex-git workspace: Installations, Refs, runtime state
-└── subjects/                # research documents, one directory per subject
+└── subjects/                # research documents, one directory per research group
     ├── AGENTS.md
-    └── <subject>/           # one subject: its documents and the sources it pins
+    └── <group>/             # one research group: the subjects studied together
+        └── <subject>/       # one subject: its documents and the sources it pins
 ```
 
 An `AGENTS.md` file in a subdirectory is a **scoped-AGENTS.md**: the root `AGENTS.md` scoped to that path. Read every
 **scoped-AGENTS.md** on the path you access before acting.
 
+`subjects/<group>/` holds a **research group**: related subjects that share an object of study, each in its own
+`subjects/<group>/<subject>/` directory. A group has a `README.md` naming its scope and listing its subjects.
+
 ## Sources
 
 - Import an external Git revision with `doctidex-git import install`. Installed content is read-only and pinned to a
   fixed commit; the CLI's Twin Skill owns those commands, so follow it instead of driving Git by hand.
-- Pin a source with a Ref inside the subject that uses it: `subjects/<subject>/sources/<name>`, using the lowercase
-  hyphenated source name. The read-only copy then sits beside the documents that depend on it, and two subjects that
-  rely on the same source each get their own Ref to the same Installation.
+- Pin a source with a Ref inside the subject that uses it: `subjects/<group>/<subject>/sources/<name>`, using the
+  lowercase hyphenated source name. The read-only copy then sits beside the documents that depend on it, and two
+  subjects that rely on the same source each get their own Ref to the same Installation.
 - Record every source in the subject's source index: kind, identifier, fixed revision or URL, and the date it was read.
   Notes stay traceable after an Installation moves to a newer revision.
 - A link into `sources/` crosses a boundary point and needs an annotation directly after it. Write the annotation in the
-  same form as the link — relative link, relative annotation — because it must be a path prefix of the link as written:
+  same form as the link — relative link, relative annotation — because it must be a path prefix of the link as written.
+  Put nothing between the link and the annotation, not even whitespace, and keep the link on the line that opens its
+  block: a link wrapped onto an indented continuation line of a list item is not matched even with a glued annotation.
 
   ```markdown
-  [Source](sources/<name>/path/to/doc.md)
-  <!-- doctidex: {cross-boundary-point: sources/<name>} -->
+  [Source](sources/<name>/path/to/doc.md)<!-- doctidex: {cross-boundary-point: sources/<name>} -->
   ```
 
 - A link written from the repository root (`/subjects/...`) takes the same absolute form in its annotation, and a link
