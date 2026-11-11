@@ -1,7 +1,12 @@
 [
   {
-    "install-id": "100a32aaa411eb94",
+    "install-id": "b338480924f99454",
     "src-sub-dir": "",
     "target-dir": "/subjects/deepseek/deepseek-harness/sources/deepseek-harness"
+  },
+  {
+    "install-id": "100a32aaa411eb94",
+    "src-sub-dir": "",
+    "target-dir": "/subjects/deepseek/deepseek-harness/sources/deepseek-harness-v0.1.5-rc.2"
   }
 ]

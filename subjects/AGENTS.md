@@ -42,6 +42,8 @@ subjects/
 
 ## Writing
 
+- Identify the source file's language before interpreting a construct, and keep TypeScript's compile-time rules
+  separate from JavaScript's runtime semantics; see [Technical Analysis](../AGENTS.md).
 - Write for a reader who does not have the source open: state what was checked, what held, and what did not.
 - Keep evidence and interpretation distinguishable, and mark anything inferred, unverified, or already stale.
 - Summarize rather than pasting long verbatim excerpts, and quote only what a finding needs.

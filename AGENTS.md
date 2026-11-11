@@ -38,8 +38,8 @@ An `AGENTS.md` file in a subdirectory is a **scoped-AGENTS.md**: the root `AGENT
   Notes stay traceable after an Installation moves to a newer revision.
 - A link into `sources/` crosses a boundary point and needs an annotation directly after it. Write the annotation in the
   same form as the link — relative link, relative annotation — because it must be a path prefix of the link as written.
-  Put nothing between the link and the annotation, not even whitespace, and keep the link on the line that opens its
-  block: a link wrapped onto an indented continuation line of a list item is not matched even with a glued annotation.
+  Put nothing between the link and the annotation, not even whitespace, and keep every list item that carries such a
+  link on one physical line: a multi-line list item is not matched even with a glued annotation.
 
   ```markdown
   [Source](sources/<name>/path/to/doc.md)<!-- doctidex: {cross-boundary-point: sources/<name>} -->
@@ -50,6 +50,19 @@ An `AGENTS.md` file in a subdirectory is a **scoped-AGENTS.md**: the root `AGENT
   `doctidex-git validate` reports a missing, misplaced, or mismatched annotation as `link.annotation.required`.
 - Blogs, papers, and other non-Git material cannot be installed. Cite them by URL and access date, and keep a local
   copy only when a finding depends on that exact artifact.
+
+## Technical Analysis
+
+- Identify the language of a source file before interpreting a construct. TypeScript (`.ts`, `.tsx`) and JavaScript
+  (`.js`, `.mjs`, `.cjs`) are different layers here, even when they compile to the same runtime.
+- For TypeScript, separate **type-level acceptance** from **runtime behavior**. A construct may compile because of an
+  annotation, a type assertion (`as`, `satisfies`), an interface or declaration merge, generics, structural typing, or
+  a `tsconfig` option; at runtime it still follows JavaScript semantics.
+- Answer at the layer the question targets. Do not explain a TypeScript type-checking question with only a JavaScript
+  runtime fact (for example, "functions are objects") when the actual reason is an earlier type assertion or
+  declaration. When both layers matter, state them separately.
+- If the language or type context is unclear, inspect the extension, imports, declarations, and `tsconfig` before
+  answering.
 
 ## Agent Scaffolding
 
